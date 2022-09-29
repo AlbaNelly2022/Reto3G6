@@ -18,16 +18,13 @@ import javax.persistence.Table;
  * @author astu3
  */
 @Entity
-@Table(name = "message")
+@Table(name="message")
 public class Message {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
     private String MessageText;
 
-    
-    
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties({"messages", "reservatios"})
@@ -38,23 +35,6 @@ public class Message {
     @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
 
-    public Machine getMachine() {
-        return machine;
-    }
-
-    public void setMachine(Machine machine) {
-        this.machine = machine;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-   
     public Integer getIdMessage() {
         return idMessage;
     }
@@ -71,4 +51,21 @@ public class Message {
         this.MessageText = MessageText;
     }
 
+    public Machine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(Machine machine) {
+        this.machine = machine;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    
+    
 }
